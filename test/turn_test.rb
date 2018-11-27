@@ -1,7 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative '../lib/turn'
-require_relative '../lib/card'
+require './lib/turn'
+require './lib/card'
 
 class TurnTest < Minitest::Test
 
@@ -20,6 +20,11 @@ class TurnTest < Minitest::Test
     assert turn.correct?
   end
 
+def test_it_was_guessed_incorrectly
+  card = Card.new("What is the capital of Alaska", "Juneau", :Geography)
+  turn = Turn.new("Fairbanks", card)
 
+  refute turn.correct?
+end
 
 end

@@ -1,7 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-#changed require './lib/card' to the following
-require_relative '../lib/card'
+require './lib/card'
 
 class CardTest < Minitest::Test
 
