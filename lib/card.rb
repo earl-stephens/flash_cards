@@ -8,16 +8,17 @@ class Card
     @category = category
   end
 
-  def question
-    @question
-  end
-
-  def answer
-    @answer
-  end
-
-  def category
-    @category
-  end
+#commented out the following, since it's not needed
+  # def question
+  #   @question
+  # end
+  #
+  # def answer
+  #   @answer
+  # end
+  #
+  # def category
+  #   @category
+  # end
 
 end
