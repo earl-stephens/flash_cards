@@ -23,16 +23,8 @@ class Deck
     if @cards[2].category == category_arg
       category_array << @cards[2]
     end
-return category_array
+    return category_array
   end
-#   def find_last_elements
-#     @last = []
-#     @last << cards[0].category
-#     @last << cards[1].category
-#     @last << cards[2].category
-#   end
-#
-#   def cards_in_a_particular_category(cat)
-# @last.count(cat)
+
 
 end
