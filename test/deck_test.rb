@@ -49,36 +49,47 @@ class DeckTest < Minitest::Test
     assert_equal 3, deck.count
   end
 
-  def test_cards_in_stem_category_for_stem
+  def test_cards_in_category
 # skip
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-    deck.cards_in_stem_category(:STEM)
+    deck.cards_in_category(:STEM)
     # binding.pry
-    assert_equal [card_2, card_3], deck.cards_in_stem_category(:STEM)
+    assert_equal [card_2, card_3], deck.cards_in_category(:STEM)
   end
 
-  def test_cards_in_stem_category_for_stem_other_category
+# def this test is essentially a repeat of test_cards_in_category
+  # def test_cards_in_geography_category_for_geography
+  #   card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
+  #   card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
+  #   card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
+  #   cards = [card_1, card_2, card_3]
+  #   deck = Deck.new(cards)
+  #   deck.cards_in_stem_category(:Geography)
+  #   assert_equal [card_1], deck.cards_in_stem_category(:Geography)
+  # end
+
+  def test_cards_wrong_category
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-    deck.cards_in_stem_category(:Geography)
-    assert_equal [card_1], deck.cards_in_stem_category(:Geography)
+    deck.cards_in_category("Pop Culture")
+    assert_equal [], deck.cards_in_category("Pop Culture")
   end
 
-  def test_cards_in_stem_category_for_stem_wrong_category
+  def test_get_a_card
     card_1 = Card.new("What is the capital of Alaska?", "Juneau", :Geography)
     card_2 = Card.new("The Viking spacecraft sent back to Earth photographs and reports about the surface of which planet?", "Mars", :STEM)
     card_3 = Card.new("Describe in words the exact direction that is 697.5° clockwise from due north?", "North north west", :STEM)
     cards = [card_1, card_2, card_3]
     deck = Deck.new(cards)
-    deck.cards_in_stem_category("Pop Culture")
-    assert_equal [], deck.cards_in_stem_category("Pop Culture")
+    deck.get_a_card(2)
+    assert_equal cards[2], deck.get_a_card(2)
   end
 
 end
