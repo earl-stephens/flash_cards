@@ -26,5 +26,11 @@ class Deck
     return category_array
   end
 
+  #added this to get the current card in round class
+  def get_a_card(card_number)
+    @cards[card_number]
+  end
+
+
 
 end
