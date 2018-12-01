@@ -26,15 +26,18 @@ def take_turn(my_guess)
   @new_turn = Turn.new(my_guess, card_variable)
   @turns.push(@new_turn)
   @current_card_number += 1
+  self.number_correct
 #   current_card(current_card_number
 return @new_turn
-
 end
 
 def number_correct
   if @new_turn.correct?
     @num_right += 1
   end
+  #added explicit return to make it clear
+  #to me that this is what is being returned
+  return @num_right
 end
 
 end
