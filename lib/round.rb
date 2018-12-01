@@ -56,4 +56,15 @@ def percent_correct
   (right_number / total_number) * 100
 end
 
+def percent_correct_by_category(category_arg)
+  right_number = number_correct_by_category(category_arg)
+  total_number = @turns.count do |turn|
+    turn.card.category == category_arg
+  end
+  (right_number / total_number) * 100
+end
+
+
+
+
 end
