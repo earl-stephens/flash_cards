@@ -45,9 +45,15 @@ def number_correct_by_category(category_arg)
   @turns.each do |turn|
     if turn.correct? && turn.card.category == category_arg
         counter +=1
+    end
   end
-end
 return counter
+end
+
+def percent_correct
+  right_number = @num_right.to_f
+  total_number = @turns.length.to_f
+  (right_number / total_number) * 100
 end
 
 end
