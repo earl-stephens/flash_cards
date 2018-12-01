@@ -1,9 +1,10 @@
 class Deck
-  attr_reader(:cards, :last, :category_array)
+  attr_reader :cards
+              # , :category_array)
 
   def initialize(cards)
     @cards = cards
-    @last = []
+    # @last = []
     # @category_array = []
   end
 

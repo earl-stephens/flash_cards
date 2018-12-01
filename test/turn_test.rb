@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/turn'
 require './lib/card'
+require 'pry'
 
 class TurnTest < Minitest::Test
 
@@ -22,7 +23,7 @@ class TurnTest < Minitest::Test
     #skip
     card = Card.new("What is the capital of Alaska", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-
+# binding.pry
     assert turn.correct?
   end
 
