@@ -1,6 +1,6 @@
 class Turn
 
-  attr_accessor(:guess)
+  attr_reader(:guess)
 
   def initialize(guess, card)
     @guess = guess
@@ -11,9 +11,10 @@ class Turn
     @card
   end
 
-  def guess
-    @guess
-  end
+# method not needed due to attr_reader
+  # def guess
+  #   @guess
+  # end
 
   def correct?
     @guess == card.answer
@@ -21,10 +22,10 @@ class Turn
 
   # print a feedback statement
   def feedback
-    if @guess == card.answer
-      puts "Correct!"
+    if correct?
+      "Correct!"
     else
-      puts "Incorrect."
+      "Incorrect."
     end
   end
 

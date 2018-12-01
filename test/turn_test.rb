@@ -2,6 +2,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/turn'
 require './lib/card'
+require 'pry'
 
 class TurnTest < Minitest::Test
 
@@ -22,7 +23,7 @@ class TurnTest < Minitest::Test
     #skip
     card = Card.new("What is the capital of Alaska", "Juneau", :Geography)
     turn = Turn.new("Juneau", card)
-
+# binding.pry
     assert turn.correct?
   end
 
@@ -33,4 +34,17 @@ def test_it_was_guessed_incorrectly
   refute turn.correct?
 end
 
+def test_it_was_guessed_correctly_gives_the_right_feedback
+  #skip
+  card = Card.new("What is the capital of Alaska", "Juneau", :Geography)
+  turn = Turn.new("Juneau", card)
+  assert "Correct!", turn.feedback
+end
+
+def test_it_was_guessed_incorrectly_gives_the_right_feedback
+  #skip
+  card = Card.new("What is the capital of Alaska", "Juneau", :Geography)
+  turn = Turn.new("Venus", card)
+  assert "Incorrect.", turn.feedback
+end
 end
