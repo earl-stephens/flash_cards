@@ -13,9 +13,10 @@ round = Round.new(deck)
 #initial output to user
 puts "Welcome!  You're playing with " + deck.count.to_s + " cards."
 puts "__________________________________________________"
-# binding.pry
-while round.turns.count <= deck.cards.length
-puts "This is card " + round.current_card_number.to_s + " out of " + deck.count.to_s
+binding.pry
+counter_variable = round.current_card_number + 1
+while round.turns.count < deck.cards.length
+puts "This is card " + counter_variable.to_s + " out of " + deck.count.to_s
 puts "Question: " + round.current_card.question
 
 #get input from user
@@ -23,6 +24,8 @@ answer = gets.chomp
 
 #print output
 puts round.take_turn(answer).feedback
+
+counter_variable += 1
 
 end
 
