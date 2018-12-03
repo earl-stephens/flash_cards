@@ -2,7 +2,7 @@ require './lib/card'
 require 'pry'
 
 class CardGenerator
-attr_reader :filename
+attr_reader :filename,
             :cardname
 
   def initialize(filename_arg)
@@ -11,17 +11,21 @@ attr_reader :filename
   end
 
 def cards
-IO.foreach("./lib/cards.txt") do |line|
+  input_array = IO.readlines("./lib/cards.txt")
   counter = 1
-  clean_line = line.strip.split(',')
-  question = clean_line[0]
-  answer = clean_line[1]
-  category = clean_line[2]
+  input_array.length.to_i.times do |array_index|
+     intermediate_array = input_array[array_index].strip.split(',')
+  question = intermediate_array[0]
+  answer = intermediate_array[1]
+  category = intermediate_array[2]
+  # binding.pry
    @cardname = "card_#{counter}"
-   binding.pry
+      counter += 1
+      # binding.pry
    @cardname = Card.new(question, answer, category)
-   counter += 1
+ end
+ @cardname
+# binding.pry
 end
-return @cardname
-end
+
 end
